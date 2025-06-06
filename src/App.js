@@ -1,13 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import srinath from './assets/Srinath.jpg';
 import gopi from './assets/Gopi.jpg';
 import srinivasaRao from './assets/DAD.jpg';
 import './App.css';
 
 function App() {
+  const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'services', 'remotes', 'spare', 'delivery', 'contact'];
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (section) => {
+    setActiveSection(section);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <div className="app">
       <header className="header">
+        <button 
+          className="nav-toggle" 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle navigation"
+        >
+          <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+        </button>
+        <div className={`overlay ${mobileMenuOpen ? 'open' : ''}`} onClick={() => setMobileMenuOpen(false)}></div>
         <div className="header-content">
           <h1>Sri Maruthi Electronics</h1>
           <p className="tagline">Your trusted electronics solution provider in Macherla</p>
@@ -24,19 +60,47 @@ function App() {
       </header>
 
       <div className="layout">
-        <nav className="sidebar">
+        <nav className={`sidebar ${mobileMenuOpen ? 'open' : ''}`}>
           <div className="logo-container">
             <div className="logo-placeholder">SME</div>
             <span>Sri Maruthi Electronics</span>
           </div>
           <ul>
-            <li><a href="#home"><i className="fas fa-home"></i> Home</a></li>
-            <li><a href="#about"><i className="fas fa-info-circle"></i> About</a></li>
-            <li><a href="#services"><i className="fas fa-tools"></i> Services</a></li>
-            <li><a href="#remotes"><i className="fas fa-tv"></i> Remotes</a></li>
-            <li><a href="#spare"><i className="fas fa-microchip"></i> Spare Parts</a></li>
-            <li><a href="#delivery"><i className="fas fa-truck"></i> Delivery</a></li>
-            <li><a href="#contact"><i className="fas fa-address-card"></i> Contact</a></li>
+            <li className={activeSection === 'home' ? 'active' : ''}>
+              <a href="#home" onClick={() => handleNavClick('home')}>
+                <i className="fas fa-home"></i> Home
+              </a>
+            </li>
+            <li className={activeSection === 'about' ? 'active' : ''}>
+              <a href="#about" onClick={() => handleNavClick('about')}>
+                <i className="fas fa-info-circle"></i> About
+              </a>
+            </li>
+            <li className={activeSection === 'services' ? 'active' : ''}>
+              <a href="#services" onClick={() => handleNavClick('services')}>
+                <i className="fas fa-tools"></i> Services
+              </a>
+            </li>
+            <li className={activeSection === 'remotes' ? 'active' : ''}>
+              <a href="#remotes" onClick={() => handleNavClick('remotes')}>
+                <i className="fas fa-tv"></i> Remotes
+              </a>
+            </li>
+            <li className={activeSection === 'spare' ? 'active' : ''}>
+              <a href="#spare" onClick={() => handleNavClick('spare')}>
+                <i className="fas fa-microchip"></i> Spare Parts
+              </a>
+            </li>
+            <li className={activeSection === 'delivery' ? 'active' : ''}>
+              <a href="#delivery" onClick={() => handleNavClick('delivery')}>
+                <i className="fas fa-truck"></i> Delivery
+              </a>
+            </li>
+            <li className={activeSection === 'contact' ? 'active' : ''}>
+              <a href="#contact" onClick={() => handleNavClick('contact')}>
+                <i className="fas fa-address-card"></i> Contact
+              </a>
+            </li>
           </ul>
           <div className="sidebar-footer">
             <p>Open: Mon-Sat</p>

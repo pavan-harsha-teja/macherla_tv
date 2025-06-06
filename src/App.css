@@ -49,6 +49,7 @@ ul {
   color: white;
   padding: 1rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .header-content {
@@ -73,6 +74,7 @@ ul {
   gap: 1rem;
   font-size: 0.9rem;
   margin-top: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .contact-link {
@@ -96,14 +98,77 @@ ul {
   gap: 0.5rem;
 }
 
-/* Sidebar */
+/* Navigation */
 .sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 250px;
+  height: 100vh;
   background-color: var(--dark-color);
   color: white;
   padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 1rem;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 900;
+  display: none;
+}
+
+.overlay.open {
+  display: block;
+}
+
+.sidebar li a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  transition: all 0.2s;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.sidebar li.active a {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left: 3px solid var(--secondary-color);
+  color: white;
+  font-weight: 500;
 }
 
 .logo-container {
@@ -127,31 +192,6 @@ ul {
   font-size: 1.2rem;
 }
 
-.sidebar ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex: 1;
-}
-
-.sidebar li a {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  transition: all 0.2s;
-}
-
-.sidebar li a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.sidebar li a i {
-  width: 20px;
-  text-align: center;
-}
-
 .sidebar-footer {
   margin-top: auto;
   padding-top: 1rem;
@@ -165,6 +205,7 @@ ul {
   flex: 1;
   padding: 2rem;
   background-color: #f8fafc;
+  margin-left: 0;
 }
 
 .section {
@@ -355,10 +396,11 @@ ul {
 
 .contact-card {
   display: flex;
+  flex-direction: column;
 }
 
 .contact-image {
-  width: 200px;
+  width: 100%;
   background-color: var(--light-gray);
   display: flex;
   align-items: center;
@@ -369,8 +411,9 @@ ul {
 .contact-image img {
   width: 100%;
   height: auto;
+  max-height: 300px;
+  object-fit: contain;
   border-radius: 4px;
-  object-fit: cover;
 }
 
 .contact-info {
@@ -447,6 +490,7 @@ ul {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 /* Footer */
@@ -499,69 +543,93 @@ ul {
   opacity: 0.7;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .layout {
-    flex-direction: column;
-  }
-  
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive Styles */
+@media (min-width: 769px) {
   .sidebar {
-    width: 100%;
-    padding: 1rem;
+    transform: translateX(0);
+    position: sticky;
+    top: 0;
+    height: 100vh;
   }
   
-  .sidebar ul {
-    flex-direction: row;
-    flex-wrap: wrap;
+  .nav-toggle {
+    display: none;
   }
   
-  .sidebar li {
-    flex: 1 0 auto;
-  }
-  
-  .sidebar li a {
-    padding: 0.5rem;
-    justify-content: center;
+  .overlay {
+    display: none !important;
   }
   
   .main {
-    padding: 1rem;
+    margin-left: 250px;
   }
-  
+
   .contact-card {
-    flex-direction: column;
+    flex-direction: row;
   }
-  
+
   .contact-image {
-    width: 100%;
-    height: 200px;
-  }
-  
-  .contact-info {
-    padding: 1.5rem;
+    width: 200px;
+    height: auto;
   }
 }
 
-@media (max-width: 480px) {
-  .header h1 {
-    font-size: 1.5rem;
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0;
+    padding-top: 70px;
   }
   
+  .nav-toggle {
+    display: block;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 800;
+  }
+  
+  .header-content {
+    padding-top: 50px;
+  }
+
   .contact-banner {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
-  
+
   .divider {
     display: none;
   }
-  
+}
+
+@media (max-width: 480px) {
   .features-grid, .remote-types {
     grid-template-columns: 1fr;
   }
-  
-  .contact-buttons {
-    flex-direction: column;
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero-text {
+    font-size: 1rem;
   }
 }
