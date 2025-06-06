@@ -8,100 +8,219 @@ function App() {
   return (
     <div className="app">
       <header className="header">
-        <h1>Sri Maruthi Electronics</h1>
-        <p>Near Navaranga Bakery, Macherla, Palnadu District</p>
+        <div className="header-content">
+          <h1>Sri Maruthi Electronics</h1>
+          <p className="tagline">Your trusted electronics solution provider in Macherla</p>
+          <div className="contact-banner">
+            <a href="tel:8341751105" className="contact-link">
+              <i className="fas fa-phone"></i> Call Now: 8341751105
+            </a>
+            <span className="divider">|</span>
+            <span className="location">
+              <i className="fas fa-map-marker-alt"></i> Near Navaranga Bakery, Macherla, Palnadu District
+            </span>
+          </div>
+        </div>
       </header>
 
       <div className="layout">
         <nav className="sidebar">
+          <div className="logo-container">
+            <div className="logo-placeholder">SME</div>
+            <span>Sri Maruthi Electronics</span>
+          </div>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#remotes">Remotes</a></li>
-            <li><a href="#spare">Spare Parts</a></li>
-            <li><a href="#delivery">Delivery</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home"><i className="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i className="fas fa-info-circle"></i> About</a></li>
+            <li><a href="#services"><i className="fas fa-tools"></i> Services</a></li>
+            <li><a href="#remotes"><i className="fas fa-tv"></i> Remotes</a></li>
+            <li><a href="#spare"><i className="fas fa-microchip"></i> Spare Parts</a></li>
+            <li><a href="#delivery"><i className="fas fa-truck"></i> Delivery</a></li>
+            <li><a href="#contact"><i className="fas fa-address-card"></i> Contact</a></li>
           </ul>
+          <div className="sidebar-footer">
+            <p>Open: Mon-Sat</p>
+            <p>9:00 AM - 8:00 PM</p>
+          </div>
         </nav>
 
         <main className="main">
-          <section id="home" className="section">
-            <h2>Welcome</h2>
-            <p>
-              Welcome to <strong>Sri Maruthi Electronics Shop</strong>, your trusted destination for all your
-              electronic and remote control needs in <strong>Macherla</strong>. We’re committed to quality
-              service and customer satisfaction.
-            </p>
+          <section id="home" className="section hero">
+            <div className="hero-content">
+              <h2>Quality Electronics Solutions</h2>
+              <p className="hero-text">
+                Your trusted destination for all electronic repairs, remote controls, and spare parts in <strong>Macherla</strong>.
+                We're committed to quality service and customer satisfaction with over 15 years of experience.
+              </p>
+              <a href="#contact" className="cta-button">Contact Us Today</a>
+            </div>
           </section>
 
           <section id="about" className="section">
-            <h2>About the Shop</h2>
-            <p>
-              <strong>Sri Maruthi Electronics Shop</strong> is a well-established outlet serving
-              Macherla with quality electronics and remote solutions.
-            </p>
-            <ul>
-              <li>Experienced in electronic repair & remote programming</li>
-              <li>Wide range of high-quality electronics</li>
-              <li>Trusted home delivery service</li>
-              <li>Affordable & reliable solutions</li>
-            </ul>
+            <h2><i className="fas fa-store-alt section-icon"></i> About Our Shop</h2>
+            <div className="about-content">
+              <p>
+                <strong>Sri Maruthi Electronics</strong> is a well-established electronics shop serving Macherla since 2008.
+                We specialize in electronic repairs, remote programming, and providing quality spare parts.
+              </p>
+              <div className="features-grid">
+                <div className="feature-card">
+                  <i className="fas fa-clock"></i>
+                  <h3>15+ Years Experience</h3>
+                  <p>Trusted service with extensive knowledge</p>
+                </div>
+                <div className="feature-card">
+                  <i className="fas fa-check-circle"></i>
+                  <h3>Quality Assurance</h3>
+                  <p>Genuine parts and reliable service</p>
+                </div>
+                <div className="feature-card">
+                  <i className="fas fa-home"></i>
+                  <h3>Home Service</h3>
+                  <p>Convenient doorstep repairs</p>
+                </div>
+                <div className="feature-card">
+                  <i className="fas fa-rupee-sign"></i>
+                  <h3>Affordable Prices</h3>
+                  <p>Competitive and transparent pricing</p>
+                </div>
+              </div>
+            </div>
           </section>
 
           <section id="services" className="section">
-            <h2>Our Services</h2>
-            <ul>
-              <li>Electronic device repairs</li>
-              <li>Remote control programming</li>
-              <li>Custom electronics solutions</li>
-              <li>Diagnostics & troubleshooting</li>
-            </ul>
+            <h2><i className="fas fa-tools section-icon"></i> Our Services</h2>
+            <div className="services-grid">
+              <div className="service-card">
+                <div className="service-icon">
+                  <i className="fas fa-tv"></i>
+                </div>
+                <h3>Electronic Repairs</h3>
+                <ul>
+                  <li>Television repairs</li>
+                  <li>Audio system fixes</li>
+                  <li>Small appliance repairs</li>
+                </ul>
+              </div>
+              <div className="service-card">
+                <div className="service-icon">
+                  <i className="fas fa-gamepad"></i>
+                </div>
+                <h3>Remote Services</h3>
+                <ul>
+                  <li>Remote programming</li>
+                  <li>Replacement remotes</li>
+                  <li>Universal remote setup</li>
+                </ul>
+              </div>
+              <div className="service-card">
+                <div className="service-icon">
+                  <i className="fas fa-microchip"></i>
+                </div>
+                <h3>Spare Parts</h3>
+                <ul>
+                  <li>Genuine components</li>
+                  <li>Batteries & accessories</li>
+                  <li>Hard-to-find parts</li>
+                </ul>
+              </div>
+            </div>
           </section>
 
           <section id="remotes" className="section">
-            <h2>Available Remotes</h2>
-            <ul>
-              <li>TV Remotes</li>
-              <li>AC Remotes</li>
-              <li>Set-top Box Remotes</li>
-              <li>Car Remotes</li>
-              <li>Universal Remotes</li>
-            </ul>
+            <h2><i className="fas fa-tv section-icon"></i> Remote Solutions</h2>
+            <div className="remote-types">
+              <div className="remote-card">
+                <i className="fas fa-tv"></i>
+                <h3>TV Remotes</h3>
+                <p>All brands available</p>
+              </div>
+              <div className="remote-card">
+                <i className="fas fa-snowflake"></i>
+                <h3>AC Remotes</h3>
+                <p>Original & universal</p>
+              </div>
+              <div className="remote-card">
+                <i className="fas fa-satellite-dish"></i>
+                <h3>Set-top Box</h3>
+                <p>Cable & DTH remotes</p>
+              </div>
+              <div className="remote-card">
+                <i className="fas fa-car"></i>
+                <h3>Car Remotes</h3>
+                <p>Key fob programming</p>
+              </div>
+            </div>
+            <div className="brands-banner">
+              <p>We service all major brands including Samsung, LG, Sony, Voltas, and more</p>
+            </div>
           </section>
 
-          <section id="spare" className="section contact-card">
-            <h2>Spare Parts</h2>
-            <p>We provide genuine, high-quality spare parts for your electronics.</p>
-            <div className="contact-details">
-              <img src={srinath} alt="G. Srinath" />
-              <div>
-                <p><strong>Contact:</strong> G. Srinath</p>
-                <p><strong>Phone:</strong> <a href="tel:9133709740">9133709740</a></p>
+          <section id="spare" className="section contact-section">
+            <h2><i className="fas fa-microchip section-icon"></i> Spare Parts</h2>
+            <div className="contact-card">
+              <div className="contact-image">
+                <img src={srinath} alt="G. Srinath" />
+              </div>
+              <div className="contact-info">
+                <h3>Spare Parts Specialist</h3>
+                <p>We provide genuine, high-quality spare parts for your electronics with warranty.</p>
+                <div className="contact-details">
+                  <p><strong>Contact:</strong> G. Srinath</p>
+                  <p><strong>Phone:</strong> <a href="tel:9133709740" className="phone-link">9133709740</a></p>
+                  <p><strong>Hours:</strong> 9:00 AM - 8:00 PM</p>
+                </div>
+                <a href="tel:9133709740" className="cta-button-small">
+                  <i className="fas fa-phone"></i> Call for Parts
+                </a>
               </div>
             </div>
           </section>
 
-          <section id="delivery" className="section contact-card">
-            <h2>Home Delivery & Repairs</h2>
-            <p>We offer fast home delivery and doorstep repair services.</p>
-            <div className="contact-details">
-              <img src={gopi} alt="G. Gopi" />
-              <div>
-                <p><strong>Contact:</strong> G. Gopi</p>
-                <p><strong>Phone:</strong> <a href="tel:7396179896">7396179896</a></p>
+          <section id="delivery" className="section contact-section">
+            <h2><i className="fas fa-truck section-icon"></i> Home Delivery & Repairs</h2>
+            <div className="contact-card">
+              <div className="contact-image">
+                <img src={gopi} alt="G. Gopi" />
+              </div>
+              <div className="contact-info">
+                <h3>Doorstep Service Available</h3>
+                <p>We offer fast home delivery and convenient doorstep repair services throughout Macherla.</p>
+                <div className="contact-details">
+                  <p><strong>Contact:</strong> G. Gopi</p>
+                  <p><strong>Phone:</strong> <a href="tel:7396179896" className="phone-link">7396179896</a></p>
+                  <p><strong>Service Area:</strong> Macherla & nearby villages</p>
+                </div>
+                <a href="tel:7396179896" className="cta-button-small">
+                  <i className="fas fa-phone"></i> Schedule Service
+                </a>
               </div>
             </div>
           </section>
 
-          <section id="contact" className="section contact-card">
-            <h2>Contact Us</h2>
-            <div className="contact-details">
-              <img src={srinivasaRao} alt="G. Srinivasa Rao" />
-              <div>
-                <p><strong>Owner:</strong> G. Srinivasa Rao</p>
-                <p><strong>Phone:</strong> <a href="tel:8341751105">8341751105</a></p>
-                <p><strong>Location:</strong> Macherla</p>
+          <section id="contact" className="section contact-section">
+            <h2><i className="fas fa-address-card section-icon"></i> Contact Us</h2>
+            <div className="contact-card">
+              <div className="contact-image">
+                <img src={srinivasaRao} alt="G. Srinivasa Rao" />
+              </div>
+              <div className="contact-info">
+                <h3>Visit Our Shop</h3>
+                <p>For all your electronic needs, visit our shop in Macherla or call us for assistance.</p>
+                <div className="contact-details">
+                  <p><strong>Owner:</strong> G. Srinivasa Rao</p>
+                  <p><strong>Phone:</strong> <a href="tel:8341751105" className="phone-link">8341751105</a></p>
+                  <p><strong>Address:</strong> Near Navaranga Bakery, Macherla, Palnadu District</p>
+                  <p><strong>Hours:</strong> Monday-Saturday, 9:00 AM - 8:00 PM</p>
+                </div>
+                <div className="contact-buttons">
+                  <a href="tel:8341751105" className="cta-button-small">
+                    <i className="fas fa-phone"></i> Call Now
+                  </a>
+                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="cta-button-small outline">
+                    <i className="fas fa-map-marker-alt"></i> Get Directions
+                  </a>
+                </div>
               </div>
             </div>
           </section>
@@ -109,7 +228,29 @@ function App() {
       </div>
 
       <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Sri Maruthi Electronics. All rights reserved.</p>
+        <div className="footer-content">
+          <div className="footer-section">
+            <h3>Sri Maruthi Electronics</h3>
+            <p>Your trusted electronics solution provider in Macherla since 2008.</p>
+          </div>
+          <div className="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#remotes">Remotes</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h3>Contact Info</h3>
+            <p><i className="fas fa-phone"></i> 8341751105</p>
+            <p><i className="fas fa-map-marker-alt"></i> Near Navaranga Bakery, Macherla</p>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>&copy; {new Date().getFullYear()} Sri Maruthi Electronics. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   );
